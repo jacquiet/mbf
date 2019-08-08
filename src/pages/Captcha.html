@@ -1,0 +1,110 @@
+<form
+  action="https://ss-supermarket-v2.myshopify.com/account"
+  accept-charset="UTF-8"
+  method="post"
+>
+  <input
+    type="hidden"
+    name="authenticity_token"
+    value="TMPqYGVH4mFyp+S4O0rHnoLxUgmIPqmUT4ukqYFI05Q0c2GuohIcJ/NcRDwzWZGODLZEiBjz37DwuF4a+D0JwA=="
+  />
+  <script>
+    //<![CDATA[
+    var onCaptchaSuccess = function() {
+      var event;
+
+      try {
+        event = new Event("captchaSuccess", {
+          bubbles: true,
+          cancelable: true
+        });
+      } catch (e) {
+        event = document.createEvent("Event");
+        event.initEvent("captchaSuccess", true, true);
+      }
+
+      window.dispatchEvent(event);
+    };
+
+    //]]>
+  </script>
+  <script>
+    //<![CDATA[
+    window.addEventListener(
+      "captchaSuccess",
+      function() {
+        var responseInput = document.querySelector(".g-recaptcha-response");
+        var submitButton = document.querySelector(".dialog-submit");
+
+        if (submitButton instanceof HTMLElement) {
+          var needResponse = responseInput instanceof HTMLElement;
+          var responseValueMissing = !responseInput.value;
+          submitButton.disabled = needResponse && responseValueMissing;
+        }
+      },
+      false
+    );
+
+    //]]>
+  </script>
+  <script>
+    //<![CDATA[
+    var recaptchaCallback = function() {
+      grecaptcha.render("g-recaptcha", {
+        sitekey: "6LeoeSkTAAAAAA9rkZs5oS82l69OEYjKRZAiKdaF",
+        size: window.innerWidth > 320 ? "normal" : "compact",
+        callback: "onCaptchaSuccess"
+      });
+    };
+
+    //]]>
+  </script>
+  <script
+    src="https://www.recaptcha.net/recaptcha/api.js?onload=recaptchaCallback&amp;render=6LcCR2cUAAAAANS1Gpq_mDIJ2pQuJphsSQaUEuc9&amp;hl=en"
+    async="async"
+  >
+     //<![CDATA[
+
+    //]]>
+  </script>
+  <noscript>
+    <div class="g-recaptcha-nojs">
+      <iframe
+        class="g-recaptcha-nojs__iframe"
+        frameborder="0"
+        scrolling="no"
+        src="https://www.google.com/recaptcha/api/fallback?k=6LeoeSkTAAAAAA9rkZs5oS82l69OEYjKRZAiKdaF"
+      ></iframe>
+      <div class="g-recaptcha-nojs__input-wrapper">
+        <textarea
+          id="g-recaptcha-response"
+          name="g-recaptcha-response"
+          class="g-recaptcha-nojs__input"
+        ></textarea>
+      </div>
+    </div>
+  </noscript>
+  <div id="g-recaptcha" class="g-recaptcha">
+    <div style="width: 304px; height: 78px;">
+      <div>
+        <iframe
+          src="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6LeoeSkTAAAAAA9rkZs5oS82l69OEYjKRZAiKdaF&amp;co=aHR0cHM6Ly9zcy1zdXBlcm1hcmtldC12Mi5teXNob3BpZnkuY29tOjQ0Mw..&amp;hl=en&amp;v=v1563777128698&amp;size=normal&amp;cb=m6a6dfwbubgw"
+          width="304"
+          height="78"
+          role="presentation"
+          name="a-adiytny5cc4w"
+          frameborder="0"
+          scrolling="no"
+          sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox"
+        ></iframe>
+      </div>
+      <textarea
+        id="g-recaptcha-response"
+        name="g-recaptcha-response"
+        class="g-recaptcha-response"
+        style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"
+      ></textarea>
+    </div>
+  </div>
+  <input type="submit" value="Submit" class="shopify-challenge__button btn" />
+</form>
